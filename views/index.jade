@@ -3,3 +3,8 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  div(ng-controller="DisplayProfileCtrl")
+      p {{profile.displayName}}
+      p {{profile.career.primaryRace}}
+      p {{profile.achievements.points.totalPoints}}
+      p {{profile.swarmLevels.protoss.totalLevelXP}}

@@ -3,5 +3,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/application.css')
-  body
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js')
+    script(src='javascripts/main.js')
+  body(ng-app='battlenetApp')
     block content

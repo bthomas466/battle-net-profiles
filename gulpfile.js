@@ -65,6 +65,11 @@ gulp.task("clean", function() {
 	])
 });
 
+//Watch task
+gulp.task('watchFiles', function(){
+	gulp.watch('public/scss/**/*.scss', ['compileSass']);
+});
+
 //Build Tasks
 
 gulp.task("build", ['minifyScripts', 'compileSass', 'compileJade'], function () {
