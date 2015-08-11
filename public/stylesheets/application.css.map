@@ -1,1 +1,0 @@
-{"version":3,"sources":["application.scss"],"names":[],"mappings":"AAIA,IAAI,CAAA;EACA,KAAK,EAHD,KAAK,GAER","file":"application.css","sourcesContent":["$blue: blue;\n$red: red;\n$green: green;\n\nbody{\n    color: $green;\n}\n"],"sourceRoot":"/source/"}
