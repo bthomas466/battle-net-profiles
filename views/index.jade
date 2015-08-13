@@ -5,6 +5,8 @@ block content
       div(class="career-stats-container")
           h2 {{profile.displayName}}
               span - id: {{profile.id}}
+          div(class="portrait" style="height: 90px; width: 90px; overflow: hidden; position: relative")
+              img(src="{{profile.portrait.url}}" style="position: absolute; top: 0; left: 0;")
           ul
               li Primary Race: {{profile.career.primaryRace}}
               li Terran Wins: {{profile.career.terranWins}}
@@ -33,5 +35,14 @@ block content
                   li Level: {{profile.swarmLevels.zerg.level}}
                   li Total Level XP: {{profile.swarmLevels.zerg.totalLevelXP}}
                   li Current Level XP: {{profile.swarmLevels.zerg.currentLevelXP}}
+  div(ng-controller="MatchHistoryCtrl" class="match-history-container")
+      h3 Last 25 Matches              
+      ul(ng-repeat="match in matches")
+          li(ng-repeat="(key, val) in match") {{key}} : {{val}}
+
+          
+          
+
+
            
                         
