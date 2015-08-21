@@ -1,7 +1,11 @@
 extends layout
 
 block content
-  div(ng-controller="DisplayProfileCtrl")
+  div(ng-controller="GetUserInformationCtrl") 
+      form(ng-submit="processForm()")
+          input(type="text" ng-model="id" id="battle-net-id")
+          input(type="text" ng-model="name" id="battle-net-name")
+          input(type="submit" value="Submit")        
       div(class="career-stats-container")
           h2 {{profile.displayName}}
               span - id: {{profile.id}}
@@ -35,7 +39,7 @@ block content
                   li Level: {{profile.swarmLevels.zerg.level}}
                   li Total Level XP: {{profile.swarmLevels.zerg.totalLevelXP}}
                   li Current Level XP: {{profile.swarmLevels.zerg.currentLevelXP}}
-  div(ng-controller="MatchHistoryCtrl" class="match-history-container")
+      div(class="match-history-container")
       h3 Last 25 Matches              
       ul(ng-repeat="match in matches")
           li(ng-repeat="(key, val) in match") {{key}} : {{val}}
