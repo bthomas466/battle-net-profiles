@@ -3,8 +3,8 @@ extends layout
 block content
   div(ng-controller="GetUserInformationCtrl") 
       form(ng-submit="processForm()")
-          input(type="text" ng-model="id" id="battle-net-id")
-          input(type="text" ng-model="name" id="battle-net-name")
+          input(type="text" ng-model="id" id="battle-net-id" placeholder="battle net ID")
+          input(type="text" ng-model="name" id="battle-net-name" placeholder="battle net Name")
           input(type="submit" value="Submit")        
       div(class="career-stats-container")
           h2 {{profile.displayName}}
