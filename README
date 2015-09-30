@@ -1,6 +1,6 @@
 To Run App
     Navigate to folder location in terminal
-    run: nodemon
+    run: npm start
     navigate to localhost:3000 in browser
 
 Example battle net ID and User name to test form = 582084, Bran
