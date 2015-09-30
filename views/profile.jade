@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    div(ng-controller="DisplayProfileCtrl")
+        div(class="career-stats-container")
+            h2 {{profile.displayName}}
+                span - id: {{profile.id}}
+            div(class="portrait" style="height: 90px; width: 90px; overflow: hidden; position: relative")
+                img(src="{{profile.portrait.url}}" style="position: absolute; top: 0; left: 0;")
+            ul
+                li Primary Race: {{profile.career.primaryRace}}
+                li Terran Wins: {{profile.career.terranWins}}
+                li Protoss Wins: {{profile.career.protossWins}}
+                li Zerg Wins: {{profile.career.zergWins}}
+                li Highest Team Rank: {{profile.career.highestTeamRank}}
+                li Season Total Games: {{profile.career.seasonTotalGames}}
+                li Career Total Games: {{profile.career.careerTotalGames}}
+        div(class="race-stats-container")
+            h3 Race Stats
+            div(class="protoss-container")
+               h4 Protoss:
+               ul
+                   li Level: {{profile.swarmLevels.protoss.level}}
+                   li Total Level XP: {{profile.swarmLevels.protoss.totalLevelXP}}
+                   li Current Level XP: {{profile.swarmLevels.protoss.currentLevelXP}} 
+            div(class="terrain-container")
+                h4 Terran:
+                ul
+                    li Level: {{profile.swarmLevels.terran.level}}
+                    li Total Level XP: {{profile.swarmLevels.terran.totalLevelXP}}
+                    li Current Level XP: {{profile.swarmLevels.terran.currentLevelXP}} 
+            div(class="zerg-container")
+                h4 Zerg:
+                ul
+                    li Level: {{profile.swarmLevels.zerg.level}}
+                    li Total Level XP: {{profile.swarmLevels.zerg.totalLevelXP}}
+                    li Current Level XP: {{profile.swarmLevels.zerg.currentLevelXP}}
+    div(ng-controller="MatchHistoryCtrl" class="match-history-container")
+        h3 Last 25 Matches              
+        ul(ng-repeat="match in matches")
+            li(ng-repeat="(key, val) in match") {{key}} : {{val}}

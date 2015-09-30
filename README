@@ -1,7 +1,6 @@
-whut up brah
+To Run App
+    Navigate to folder location in terminal
+    run: nodemon
+    navigate to localhost:3000 in browser
 
-
-you took so long you started to smell so baaaad. <--- way to finally fix your spelling error.
-
-
-Default battle net ID and User name to test form = 582084, Bran.
+Example battle net ID and User name to test form = 582084, Bran
