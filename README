@@ -1,5 +1,6 @@
 To Run App
     Navigate to folder location in terminal
+    run: gulp
     run: npm start
     navigate to localhost:3000 in browser
 
