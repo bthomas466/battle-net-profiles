@@ -2,7 +2,7 @@ $primary: #f5f5f5;
 $dark-primary: #222;
 $gray: #DBDBDB;
 $white: #FFF;
-$domine: 'Domine', serif;
+$cardo: 'Cardo', serif;
 $montserrat: 'Montserrat', sans-serif;
 $primary-text: #333;
 
@@ -22,13 +22,13 @@ body {
     color: $primary-text;
     margin: 0;
     background-color: $primary;
-    font-family: $domine;
+    font-family: $cardo;
     h1,h2,h3,h4 {
         font-family: $montserrat;
         margin: 0;
     }
     input {
-        font-family: $domine;
+        font-family: $cardo;
     }
     ul {
         list-style: none;
@@ -234,16 +234,31 @@ body {
     ul {
         float: left;
         width: 190px;
-        height: 150px;
+        height: 365px;
         border-radius: 6px;
         box-shadow: 0 0 6px #000;
-        padding: 10px;
+        padding: 65px 10px 10px 10px;
         margin: 0px 6px 12px 6px;
-        background-color: $dark-primary;
         color: $white;
         opacity: 0;
+        background: url('/images/sc2-icon-light.png') no-repeat 73px 8px $dark-primary;
         li {
-            padding: 2px 0;
+            text-align: center;
+            &:nth-child(5n) {
+                display: none;
+            }
+            span.match-key {
+                font-weight: 700;
+                text-transform: uppercase;
+                border-bottom: 2px groove #CFCFCF;
+                margin-bottom: 8px;
+                display: block;
+            }
+            span.match-value {
+                display: block;
+                margin-bottom: 15px;
+                text-transform: lowercase;
+            }
         }
     }
 }

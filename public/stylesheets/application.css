@@ -14,12 +14,12 @@ body {
   color: #333;
   margin: 0;
   background-color: #f5f5f5;
-  font-family: "Domine", serif; }
+  font-family: "Cardo", serif; }
   body h1, body h2, body h3, body h4 {
     font-family: "Montserrat", sans-serif;
     margin: 0; }
   body input {
-    font-family: "Domine", serif; }
+    font-family: "Cardo", serif; }
   body ul {
     list-style: none;
     padding: 0; }
@@ -191,16 +191,28 @@ body {
   .match-history-container ul {
     float: left;
     width: 190px;
-    height: 150px;
+    height: 365px;
     border-radius: 6px;
     box-shadow: 0 0 6px #000;
-    padding: 10px;
+    padding: 65px 10px 10px 10px;
     margin: 0px 6px 12px 6px;
-    background-color: #222;
     color: #FFF;
-    opacity: 0; }
+    opacity: 0;
+    background: url("/images/sc2-icon-light.png") no-repeat 73px 8px #222; }
     .match-history-container ul li {
-      padding: 2px 0; }
+      text-align: center; }
+      .match-history-container ul li:nth-child(5n) {
+        display: none; }
+      .match-history-container ul li span.match-key {
+        font-weight: 700;
+        text-transform: uppercase;
+        border-bottom: 2px groove #CFCFCF;
+        margin-bottom: 8px;
+        display: block; }
+      .match-history-container ul li span.match-value {
+        display: block;
+        margin-bottom: 15px;
+        text-transform: lowercase; }
 
 .progress {
   height: 20px;

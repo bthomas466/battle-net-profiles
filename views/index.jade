@@ -66,9 +66,9 @@ block content
               div(class="wow match-history-container clearfix")
                   h3(class="wow") Last 25 Matches  
                   div(class="match clearfix")          
-                      ul(class="matches wow" ng-repeat="match in matches")
+                      ul(class="matches wow" data-wow-offset="200" ng-repeat="match in matches")
                           li(ng-repeat="(key, val) in match") 
-                              span(class="match-key") {{key}} :
+                              span(class="match-key") {{key}}
                               span(class="match-value")  {{val}}
 
           
