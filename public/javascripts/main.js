@@ -27,7 +27,7 @@ battlenetApp.factory('idAndName', ['$http', function($http) {
 }]);
 
 //Get User information
-battlenetApp.controller('GetUserInformationCtrl', ['$scope', 'idAndName', function($scope, idAndName) {
+battlenetApp.controller('GetUserInformationCtrl', ['$scope', '$timeout', 'idAndName', function($scope, $timeout, idAndName) {
     //create submit function to get form data
     $scope.processForm = function() {
         idAndName.getProfile($scope.id, $scope.name).then(function(response) {
@@ -41,7 +41,7 @@ battlenetApp.controller('GetUserInformationCtrl', ['$scope', 'idAndName', functi
             //set zerg current and max xp
             $scope.zergMax = $scope.profile.swarmLevels.zerg.totalLevelXP;
             $scope.zergCurrent = $scope.profile.swarmLevels.zerg.currentLevelXP;
-            if($scope.zergCurrent == -1) {$sope.zergCurrent = 5850000;}
+            if($scope.zergCurrent == -1) {$scope.zergCurrent = 5850000;}
             //set terran current and max xp
             $scope.terranMax = $scope.profile.swarmLevels.terran.totalLevelXP;
             $scope.terranCurrent = $scope.profile.swarmLevels.terran.currentLevelXP;
@@ -50,9 +50,16 @@ battlenetApp.controller('GetUserInformationCtrl', ['$scope', 'idAndName', functi
             $scope.protossMax = $scope.profile.swarmLevels.protoss.totalLevelXP;
             $scope.protossCurrent = $scope.profile.swarmLevels.protoss.currentLevelXP;
             if($scope.protossCurrent == -1) {$scope.protossCurrent = 5850000;}
+
+            //swap background image for career container
+            var images = ['Rendezvous_SC2_Art1.jpg', 'ui_hots_loading_missionselect_zexpedition01.jpg', 'ui_hots_loading_planetviewkorhal.jpg', 'maxresdefault.jpg'];
+            var careerContainer = angular.element(document.querySelector('.career-wrapper'));
+            careerContainer.css('background-image', 'url(images/' + images[Math.floor(Math.random() * images.length)] + ')');
         });
         idAndName.getMatches($scope.id, $scope.name).then(function(response) {
-            $scope.matches = response;
+            $timeout(function(){
+                $scope.matches = response;
+            }, 1750);
         });
     };
 }]);

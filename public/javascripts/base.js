@@ -61,7 +61,7 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-var battlenetApp = angular.module('battlenetApp', []);
+var battlenetApp = angular.module('battlenetApp', ['ui.bootstrap']);
 
 //Service
 battlenetApp.factory('idAndName', ['$http', function($http) {
@@ -94,7 +94,25 @@ battlenetApp.controller('GetUserInformationCtrl', ['$scope', 'idAndName', functi
     //create submit function to get form data
     $scope.processForm = function() {
         idAndName.getProfile($scope.id, $scope.name).then(function(response) {
+            //set profile response to scope
             $scope.profile = response;
+            //add css classes to animate header to fixed top
+            var bg = angular.element(document.querySelector('.bg-wrap'));
+            bg.addClass('dark');
+            var myEl = angular.element(document.querySelector('.battle-net-form'));
+            myEl.addClass('fixed-top');
+            //set zerg current and max xp
+            $scope.zergMax = $scope.profile.swarmLevels.zerg.totalLevelXP;
+            $scope.zergCurrent = $scope.profile.swarmLevels.zerg.currentLevelXP;
+            if($scope.zergCurrent == -1) {$sope.zergCurrent = 5850000;}
+            //set terran current and max xp
+            $scope.terranMax = $scope.profile.swarmLevels.terran.totalLevelXP;
+            $scope.terranCurrent = $scope.profile.swarmLevels.terran.currentLevelXP;
+            if($scope.terranCurrent == -1) {$scope.terranCurrent = 5850000;}
+            //set protoss current and max xp
+            $scope.protossMax = $scope.profile.swarmLevels.protoss.totalLevelXP;
+            $scope.protossCurrent = $scope.profile.swarmLevels.protoss.currentLevelXP;
+            if($scope.protossCurrent == -1) {$scope.protossCurrent = 5850000;}
         });
         idAndName.getMatches($scope.id, $scope.name).then(function(response) {
             $scope.matches = response;

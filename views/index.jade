@@ -14,56 +14,62 @@ block content
                       label(class="input-label") 
                           span(class="label-content")
                   input(type="submit" value="Submit")        
-      div(class="career-stats-container" ng-show="profile")
-          h2 {{profile.displayName}}
-              span - id: {{profile.id}}
-          div(class="portrait" style="background-image: url('{{profile.portrait.url}}'); background-position-x: {{profile.portrait.x}}px; background-position-y: {{profile.portrait.y}}px;")
-          ul
-              li Primary Race: {{profile.career.primaryRace}}
-              li Terran Wins: {{profile.career.terranWins}}
-              li Protoss Wins: {{profile.career.protossWins}}
-              li Zerg Wins: {{profile.career.zergWins}}
-              li Highest Team Rank: {{profile.career.highestTeamRank}}
-              li Season Total Games: {{profile.career.seasonTotalGames}}
-              li Career Total Games: {{profile.career.careerTotalGames}}
-      div(class="race-stats-container clearfix" ng-show="profile")
-          div(class="three-col protoss-container")
-             div(class="upper")
-                 img(src="/images/protoss-story-thumb.jpg")
-             div(class="lower")
-                 h4 Protoss
-                 ul
-                     li Level: {{profile.swarmLevels.protoss.level}}
-                     li Total Level XP: {{protossMax}}
-                     li Current Level XP: {{protossCurrent}} 
-                     li
-                         progressbar(max="protossMax" value="protossCurrent")
-          div(class="three-col terran-container")
-              div(class="upper")
-                  img(src="/images/terran-story-thumb.jpg")
-              div(class="lower")
-                  h4 Terran
-                  ul
-                      li Level: {{profile.swarmLevels.terran.level}}
-                      li Total Level XP: {{terranMax}}
-                      li Current Level XP: {{terranCurrent}}
-                      li
-                          progressbar(max="terranMax" value="terranCurrent")
-          div(class="three-col zerg-container")
-              div(class="upper")
-                  img(src="/images/zerg-story-thumb.jpg")
-              div(class="lower")
-                  h4 Zerg
-                  ul
-                      li Level: {{profile.swarmLevels.zerg.level}}
-                      li Total Level XP: {{zergMax}}
-                      li Current Level XP: {{zergCurrent}}
-                      li
-                          progressbar(max="zergMax" value="zergCurrent")
-      div(class="match-history-container clearfix" ng-show="matches")
-          h3 Last 25 Matches              
-          ul(ng-repeat="match in matches")
-              li(ng-repeat="(key, val) in match") {{key}} : {{val}}
+      div(class="wrapper career-wrapper" ng-show="profile")
+          div(class="career-stats-container")
+              h2 {{profile.displayName}}
+              h3 id: {{profile.id}}
+              div(class="portrait" style="background-image: url('{{profile.portrait.url}}'); background-position-x: {{profile.portrait.x}}px; background-position-y: {{profile.portrait.y}}px;")
+              ul
+                  li Primary Race: {{profile.career.primaryRace}}
+                  li Terran Wins: {{profile.career.terranWins}}
+                  li Protoss Wins: {{profile.career.protossWins}}
+                  li Zerg Wins: {{profile.career.zergWins}}
+                  li Highest Team Rank: {{profile.career.highestTeamRank}}
+                  li Season Total Games: {{profile.career.seasonTotalGames}}
+                  li Career Total Games: {{profile.career.careerTotalGames}}
+      div(class="wrapper card-wrapper races" ng-show="profile")
+          div(class="race-stats-container clearfix")
+              div(class="three-col protoss-container")
+                 div(class="upper")
+                     img(src="/images/protoss-story-thumb.jpg")
+                 div(class="lower")
+                     h4 Protoss
+                     ul
+                         li Level: {{profile.swarmLevels.protoss.level}}
+                         li Total Level XP: {{protossMax}}
+                         li Current Level XP: {{protossCurrent}} 
+                         li
+                             progressbar(max="protossMax" value="protossCurrent")
+              div(class="three-col terran-container")
+                  div(class="upper")
+                      img(src="/images/terran-story-thumb.jpg")
+                  div(class="lower")
+                      h4 Terran
+                      ul
+                          li Level: {{profile.swarmLevels.terran.level}}
+                          li Total Level XP: {{terranMax}}
+                          li Current Level XP: {{terranCurrent}}
+                          li
+                              progressbar(max="terranMax" value="terranCurrent")
+              div(class="three-col zerg-container")
+                  div(class="upper")
+                      img(src="/images/zerg-story-thumb.jpg")
+                  div(class="lower")
+                      h4 Zerg
+                      ul
+                          li Level: {{profile.swarmLevels.zerg.level}}
+                          li Total Level XP: {{zergMax}}
+                          li Current Level XP: {{zergCurrent}}
+                          li
+                              progressbar(max="zergMax" value="zergCurrent")
+          div(ng-show="matches")
+              div(class="wow match-history-container clearfix")
+                  h3(class="wow") Last 25 Matches  
+                  div(class="match clearfix")          
+                      ul(class="matches wow" ng-repeat="match in matches")
+                          li(ng-repeat="(key, val) in match") 
+                              span(class="match-key") {{key}} :
+                              span(class="match-value")  {{val}}
 
           
           

@@ -1,17 +1,47 @@
-/*search fields on page load*/
+$primary: #f5f5f5;
+$dark-primary: #222;
+$gray: #DBDBDB;
+$white: #FFF;
+$domine: 'Domine', serif;
+$montserrat: 'Montserrat', sans-serif;
+$primary-text: #333;
+
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
 body {
     font-size: 100%;
     height: 100%;
+    color: $primary-text;
     margin: 0;
-    background-color: #f4f5f9;
-    font-family: 'Lato', sans-serif;
+    background-color: $primary;
+    font-family: $domine;
+    h1,h2,h3,h4 {
+        font-family: $montserrat;
+        margin: 0;
+    }
+    input {
+        font-family: $domine;
+    }
     ul {
         list-style: none;
         padding: 0;
     }
+    h2 {
+        font-size: 3.5em;
+    }
+    h3 {
+        font-size: 3.25em;
+    }
     h4 {
         font-size: 3em;
-        margin: 10px 0;
     }
 }
 .clearfix:after {
@@ -21,6 +51,10 @@ body {
 }
 .container-wrap {
     width: 100%;
+}
+.wrapper {
+    width: 100%;
+    padding: 40px 0;
 }
 .battle-net-form {
     margin: 35vh auto 0;
@@ -98,10 +132,11 @@ body {
 	animation: anim-shadow 0.3s forwards;
 }
 .bg-wrap.dark {
-    background-color: #313038;
+    background-color: $dark-primary;
 }
 .battle-net-form.fixed-top {
     height: 100px;
+    padding-top: 16px;
     margin: 0 auto;
     transition: all .5s linear;
     div.form-field {
@@ -118,20 +153,40 @@ body {
         display: inherit;
     }
 }
-
+.career-wrapper {
+    box-shadow: inset  0  8px 8px -8px #333,
+                inset  0 -8px 8px -8px #333;
+    transition: all .5s ease;
+}
 .career-stats-container {
     width: 1000px;
     margin: 0 auto;
     text-align: center;
+    color: #FFF;
     .portrait {
         border-radius: 50%;
-        border: 6px solid #FFF;
         height: 90px;
         width: 90px;
-        margin: 0 auto;
+        margin: 10px auto;
+        border: 2px solid $primary;
+    }
+    ul {
+        font-size: 20px;
+        margin: 0;
+        li {
+            padding: 2px 0;
+        }
     }
 }
-
+.card-wrapper {
+    background-color: $primary;
+    position: relative;
+}
+.races {
+    animation: slidein .5s ease .8s forwards;
+    margin-top: -504px;
+    min-height: 510px;
+}
 .race-stats-container {
     width: 1000px;
     margin: 0 auto;
@@ -140,11 +195,14 @@ body {
     }
     .three-col {
         float: left;
-        width: 315px;
+        width: 320px;
         border-radius: 6px;
-        border: 4px solid #000;
-        margin-right: 15px;
-        box-shadow: 0 0 10px 0 #000;
+        margin-right: 20px;
+        box-shadow: 0 0 6px 0 #333;
+        background-color: $dark-primary;
+        color: $white;
+        animation: fadeDown 1s ease 1.2s forwards;
+        opacity: 0;
         &:last-child {
             margin-right: 0;
         }
@@ -152,27 +210,49 @@ body {
         img {
             width: 100%;
             height: auto;
+            border-radius: 6px 6px 0 0;
         }
         .lower{
-            padding: 0 10px;
+            padding: 0 20px;
+        }
+        ul {
+            li {
+                padding: 2px 0;
+            }
         }
     }
 }
 
 .match-history-container {
-    width: 1000px;
+    width: 1010px;
     margin: 0 auto;
+    padding: 60px 0;
+    h3 {
+        text-align: center;
+        margin-bottom: 20px
+    }
     ul {
         float: left;
-        margin-right: 10px;
+        width: 190px;
+        height: 150px;
+        border-radius: 6px;
+        box-shadow: 0 0 6px #000;
+        padding: 10px;
+        margin: 0px 6px 12px 6px;
+        background-color: $dark-primary;
+        color: $white;
+        opacity: 0;
+        li {
+            padding: 2px 0;
+        }
     }
 }
 
 
 .progress {
     height: 20px;
-    margin-bottom: 20px;
     overflow: hidden;
+    margin-top: 8px;
     background-color: #f5f5f5;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
@@ -192,6 +272,58 @@ body {
         -o-transition: width .6s ease;
         transition: width .6s ease;
     }
+}
+
+@mixin animation-delay($delay, $i) {
+    animation-delay: $delay + $i;
+}
+
+.match {
+	-webkit-perspective: 1300px;
+	perspective: 1300px;
+    .matches {
+    	-webkit-transform-style: preserve-3d;
+    	transform-style: preserve-3d;
+    	-webkit-transform-origin: 0% 0%;
+    	transform-origin: 0% 0%;
+    	-webkit-transform: rotateX(-80deg);
+    	transform: rotateX(-80deg);
+    	-webkit-animation: flip .4s ease-in-out forwards;
+    	animation: flip .4s ease-in-out forwards;
+        @for $i from 2 through 25 {
+            &:nth-child(#{$i}) {
+                animation-delay: $i * 0.05s;
+            }
+        }
+
+    }
+}
+
+
+@-webkit-keyframes fadeDown {
+    0% {opacity: 0; -webkit-transform: translateY(-40px);}
+    100% {opacity: 1; -webkit-transform: translateY(0);}
+}
+@keyframes fadeDown {
+    0% {opacity: 0; transform: translateY(-40px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+
+@-webkit-keyframes slidein {
+    to { margin-top: 0;}
+}
+@keyframes slidein {
+    to { margin-top: 0;}
+}
+
+@-webkit-keyframes flip {
+	0% { opacity: 0; }
+	100% { -webkit-transform: rotateX(0deg); opacity: 1; }
+}
+
+@keyframes flip {
+	0% { opacity: 0; }
+	100% { -webkit-transform: rotateX(0deg); transform: rotateX(0deg); opacity: 1; }
 }
 
 
