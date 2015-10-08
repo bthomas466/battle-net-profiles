@@ -33,11 +33,6 @@ battlenetApp.controller('GetUserInformationCtrl', ['$scope', '$timeout', 'idAndN
         idAndName.getProfile($scope.id, $scope.name).then(function(response) {
             //set profile response to scope
             $scope.profile = response;
-            //add css classes to animate header to fixed top
-            var bg = angular.element(document.querySelector('.bg-wrap'));
-            bg.addClass('dark');
-            var myEl = angular.element(document.querySelector('.battle-net-form'));
-            myEl.addClass('fixed-top');
             //set zerg current and max xp
             $scope.zergMax = $scope.profile.swarmLevels.zerg.totalLevelXP;
             $scope.zergCurrent = $scope.profile.swarmLevels.zerg.currentLevelXP;
@@ -50,11 +45,20 @@ battlenetApp.controller('GetUserInformationCtrl', ['$scope', '$timeout', 'idAndN
             $scope.protossMax = $scope.profile.swarmLevels.protoss.totalLevelXP;
             $scope.protossCurrent = $scope.profile.swarmLevels.protoss.currentLevelXP;
             if($scope.protossCurrent == -1) {$scope.protossCurrent = 5850000;}
-
             //swap background image for career container
-            var images = ['Rendezvous_SC2_Art1.jpg', 'ui_hots_loading_missionselect_zexpedition01.jpg', 'ui_hots_loading_planetviewkorhal.jpg', 'maxresdefault.jpg'];
+            var images = ['Rendezvous_SC2_Art1.jpg', 'ui_hots_loading_missionselect_zexpedition01.jpg', 'ui_hots_loading_planetviewkorhal.jpg', 'maxresdefault.jpg', 'free-wallpaper-14.jpg', 'best_game_starcraft_2_wallpapers_hd_10.jpg', 'starcraft-2-battle-1920-1080-6284.jpg'];
             var careerContainer = angular.element(document.querySelector('.career-wrapper'));
             careerContainer.css('background-image', 'url(images/' + images[Math.floor(Math.random() * images.length)] + ')');
+            var myEl = angular.element(document.querySelector('.battle-net-form'));
+            myEl.addClass("fixed-top-hide")
+
+            $timeout(function(){
+                //add css classes to animate header to fixed top
+                var bg = angular.element(document.querySelector('.bg-wrap'));
+                bg.addClass('dark');
+                myEl.removeClass('fixed-top-hide');
+                myEl.addClass('fixed-top-show');
+            }, 0875);
         });
         idAndName.getMatches($scope.id, $scope.name).then(function(response) {
             $timeout(function(){
