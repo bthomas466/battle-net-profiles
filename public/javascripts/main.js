@@ -1,7 +1,7 @@
-var battlenetApp = angular.module('battlenetApp', ['ui.bootstrap']);
+var battlenetApp = angular.module('battlenetApp', ['ui.bootstrap', 'oitozero.ngSweetAlert']);
 
 //Service
-battlenetApp.factory('idAndName', ['$http', function($http) {
+battlenetApp.factory('idAndName', ['$http', 'SweetAlert', function($http, SweetAlert) {
     return {
         //get user profile - params: id, name
         getProfile: function(id, name) {
@@ -11,6 +11,7 @@ battlenetApp.factory('idAndName', ['$http', function($http) {
                 })
                 .catch(function(response) {
                     console.log('Something broke', response.status, response.data);
+                    SweetAlert.swal('Oops', 'Something went wrong.  Please try again', 'error');
                 });
         },
         //get last 25 matches - params: id, name
