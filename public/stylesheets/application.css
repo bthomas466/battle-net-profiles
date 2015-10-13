@@ -1,3 +1,54 @@
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes fadeDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-40px); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0); } }
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@-webkit-keyframes slidein {
+  to {
+    margin-top: 0; } }
+
+@keyframes slidein {
+  to {
+    margin-top: 0; } }
+
+@-webkit-keyframes flip {
+  0% {
+    opacity: 0; }
+  100% {
+    -webkit-transform: rotateX(0deg);
+    opacity: 1; } }
+
+@keyframes flip {
+  0% {
+    opacity: 0; }
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    opacity: 1; } }
+
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -45,6 +96,20 @@ body {
   width: 100%;
   padding: 40px 0; }
 
+.bg-wrap.dark {
+  background-color: #222; }
+
+.career-wrapper {
+  box-shadow: inset 0 8px 8px -8px #333, inset 0 -8px 8px -8px #333;
+  transition: all 0.5s ease; }
+
+.card-wrapper {
+  background-color: #f5f5f5;
+  position: relative;
+  animation: slidein 0.5s ease 0.8s forwards;
+  margin-top: -628px;
+  min-height: 645px; }
+
 .battle-net-form {
   margin: 12vh auto 0;
   width: 1000px; }
@@ -64,7 +129,7 @@ body {
       padding: 10px;
       border-bottom: 3px solid #CFCFCF;
       background: transparent;
-      color: #000;
+      color: #333;
       font-size: 2.2em;
       width: 100%;
       transition: border-color 0.25s linear; }
@@ -133,19 +198,10 @@ body {
       .battle-net-form .button input[type="submit"]:hover {
         color: #3a648f; }
 
-/*fix duplicate css*/
-.bg-wrap.dark {
-  background-color: #222; }
-
-.battle-net-form.fixed-top-hide {
-  height: 100px;
-  width: 100%;
-  padding-top: 16px;
-  margin: 0 auto; }
-  .battle-net-form.fixed-top-hide .form-field,
-  .battle-net-form.fixed-top-hide .main-logo,
-  .battle-net-form.fixed-top-hide .button {
-    display: none; }
+.battle-net-form.fixed-top-hide .form-field,
+.battle-net-form.fixed-top-hide .main-logo,
+.battle-net-form.fixed-top-hide .button {
+  display: none; }
 
 .battle-net-form.fixed-top-show {
   height: 90px;
@@ -188,10 +244,6 @@ body {
     .battle-net-form.fixed-top-show .button input[type="submit"] {
       font-size: 1.2em; }
 
-.career-wrapper {
-  box-shadow: inset 0 8px 8px -8px #333, inset 0 -8px 8px -8px #333;
-  transition: all 0.5s ease; }
-
 .career-stats-container {
   width: 1000px;
   margin: 0 auto;
@@ -208,15 +260,6 @@ body {
     margin: 0; }
     .career-stats-container ul li {
       padding: 2px 0; }
-
-.card-wrapper {
-  background-color: #f5f5f5;
-  position: relative; }
-
-.races {
-  animation: slidein 0.5s ease 0.8s forwards;
-  margin-top: -628px;
-  min-height: 645px; }
 
 .race-stats-container {
   width: 1000px;
@@ -243,6 +286,24 @@ body {
       padding: 0 20px; }
     .race-stats-container .three-col ul li {
       padding: 2px 0; }
+  .race-stats-container .progress {
+    height: 20px;
+    overflow: hidden;
+    margin-top: 8px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
+    .race-stats-container .progress .progress-bar {
+      float: left;
+      width: 0;
+      height: 100%;
+      font-size: 12px;
+      line-height: 20px;
+      color: #FFF;
+      text-align: center;
+      background-color: #337ab7;
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+      transition: width 0.6s ease; }
 
 .match-history-container {
   width: 1010px;
@@ -278,29 +339,6 @@ body {
         display: block;
         margin-bottom: 15px;
         text-transform: lowercase; }
-
-.progress {
-  height: 20px;
-  overflow: hidden;
-  margin-top: 8px;
-  background-color: #f5f5f5;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
-  .progress .progress-bar {
-    float: left;
-    width: 0;
-    height: 100%;
-    font-size: 12px;
-    line-height: 20px;
-    color: #fff;
-    text-align: center;
-    background-color: #337ab7;
-    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-    -webkit-transition: width 0.6s ease;
-    -o-transition: width 0.6s ease;
-    transition: width 0.6s ease; }
 
 .match {
   -webkit-perspective: 1300px;
@@ -362,56 +400,5 @@ body {
       animation-delay: 1.2s; }
     .match .matches:nth-child(25) {
       animation-delay: 1.25s; }
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@-webkit-keyframes fadeDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(-40px); }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0); } }
-
-@keyframes fadeDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-40px); }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
-
-@-webkit-keyframes slidein {
-  to {
-    margin-top: 0; } }
-
-@keyframes slidein {
-  to {
-    margin-top: 0; } }
-
-@-webkit-keyframes flip {
-  0% {
-    opacity: 0; }
-  100% {
-    -webkit-transform: rotateX(0deg);
-    opacity: 1; } }
-
-@keyframes flip {
-  0% {
-    opacity: 0; }
-  100% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    opacity: 1; } }
 
 /*# sourceMappingURL=application.css.map */

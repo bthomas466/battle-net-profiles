@@ -1,0 +1,102 @@
+.battle-net-form {
+    margin: 12vh auto 0;
+    width: 1000px;
+    .main-logo {
+        display: block;
+        margin: 0 auto;
+        padding-right: 25px;
+    }
+    div.form-field {
+        float: left;
+        margin-right: 70px;
+        margin-bottom: 20px;
+        position: relative;
+    	width: 465px;
+        &:nth-child(2){
+            margin-right: 0;
+        }
+        input[type=text] {
+            padding: 10px;
+            border-bottom: 3px solid $light-gray;
+            background: transparent;
+            color: $primary-text;
+            font-size: 2.2em;
+            width: 100%;
+            transition: border-color .25s linear;
+            &:focus {
+                outline: 0;
+                border-bottom-color: $blue-sc;
+            }
+        }
+
+    }
+    .button {
+        cursor: pointer;
+        padding: 10px;
+        width: 50%;
+        text-align: center;
+        margin: 40px auto 0;
+        background: transparent;
+    	color: $dark-gray;
+    	font-weight: 700;
+    	text-shadow: none;
+    	-webkit-transition: color 0.3s;
+    	-moz-transition: color 0.3s;
+    	transition: color 0.3s;
+        position: relative;
+        background: transparent;
+        &::before,
+        &::after {
+            position: absolute;
+        	left: 0;
+        	width: 100%;
+        	height: 2px;
+        	background: $blue-sc;
+        	content: '';
+        	opacity: 0;
+        	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+        	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
+        	transition: opacity 0.3s, transform 0.3s;
+        	-webkit-transform: translateY(-10px);
+        	-moz-transform: translateY(-10px);
+        	transform: translateY(-10px);
+        }
+        &::before {
+            top: 0;
+        	-webkit-transform: translateY(-10px);
+        	-moz-transform: translateY(-10px);
+        	transform: translateY(-10px);
+        }
+        &::after {
+            bottom: 0;
+        	-webkit-transform: translateY(10px);
+        	-moz-transform: translateY(10px);
+        	transform: translateY(10px);
+        }
+        &:hover,
+        &:focus {
+            color: #fff;
+        }
+        &:hover::before,
+        &:focus::before,
+        &:hover::after,
+        &:focus::after {
+            opacity: 1;
+        	-webkit-transform: translateY(0px);
+        	-moz-transform: translateY(0px);
+        	transform: translateY(0px);
+        }
+        input[type="submit"] {
+            cursor: pointer;
+            width: 100%;
+            background: transparent;
+            font-size: 30px;
+            font-family: $montserrat;
+            color: #666;
+            transition: color .1s ease-in-out;
+            &:hover {
+                color: $blue-sc;
+            }
+        }
+    }
+}

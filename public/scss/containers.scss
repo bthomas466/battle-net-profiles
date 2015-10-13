@@ -1,0 +1,22 @@
+.container-wrap {
+    width: 100%;
+}
+.wrapper {
+    width: 100%;
+    padding: 40px 0;
+}
+.bg-wrap.dark {
+    background-color: $dark-primary;
+}
+.career-wrapper {
+    box-shadow: inset  0  8px 8px -8px $dark-shadow,
+                inset  0 -8px 8px -8px $dark-shadow;
+    transition: all .5s ease;
+}
+.card-wrapper {
+    background-color: $primary;
+    position: relative;
+    animation: slidein .5s ease .8s forwards;
+    margin-top: -628px;
+    min-height: 645px;
+}

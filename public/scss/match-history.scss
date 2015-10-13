@@ -1,0 +1,61 @@
+.match-history-container {
+    width: 1010px;
+    margin: 0 auto;
+    padding: 60px 0;
+    h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeIn .4s ease .5s forwards;
+    }
+    ul {
+        float: left;
+        width: 190px;
+        height: 365px;
+        border-radius: 6px;
+        box-shadow: 0 0 6px $black;
+        padding: 65px 10px 10px 10px;
+        margin: 0px 6px 12px 6px;
+        color: $white;
+        opacity: 0;
+        background: url('/images/sc2-icon-light.png') no-repeat 73px 8px $dark-primary;
+        li {
+            text-align: center;
+            &:nth-child(5n) {
+                display: none;
+            }
+            span.match-key {
+                font-weight: 700;
+                text-transform: uppercase;
+                border-bottom: 2px groove $light-gray;
+                margin-bottom: 8px;
+                display: block;
+            }
+            span.match-value {
+                display: block;
+                margin-bottom: 15px;
+                text-transform: lowercase;
+            }
+        }
+    }
+}
+.match {
+	-webkit-perspective: 1300px;
+	perspective: 1300px;
+    .matches {
+    	-webkit-transform-style: preserve-3d;
+    	transform-style: preserve-3d;
+    	-webkit-transform-origin: 0% 0%;
+    	transform-origin: 0% 0%;
+    	-webkit-transform: rotateX(-80deg);
+    	transform: rotateX(-80deg);
+    	-webkit-animation: flip .4s ease-in-out forwards;
+    	animation: flip .4s ease-in-out forwards;
+        @for $i from 2 through 25 {
+            &:nth-child(#{$i}) {
+                animation-delay: $i * 0.05s;
+            }
+        }
+
+    }
+}

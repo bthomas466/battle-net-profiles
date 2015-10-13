@@ -1,0 +1,20 @@
+.career-stats-container {
+    width: $container-width;
+    margin: 0 auto;
+    text-align: center;
+    color: $white;
+    .portrait {
+        border-radius: 50%;
+        height: 90px;
+        width: 90px;
+        margin: 10px auto;
+        border: 2px solid $primary;
+    }
+    ul {
+        font-size: 20px;
+        margin: 0;
+        li {
+            padding: 2px 0;
+        }
+    }
+}
