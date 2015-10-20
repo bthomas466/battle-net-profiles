@@ -1,0 +1,14 @@
+.mobile-menu {
+    display: none;
+    overflow: hidden;
+    img {
+        width: 50px;
+        height: auto;
+        float: right;
+    }
+    .mobile-search {
+        .form-field {
+            float: none;
+        }
+    }
+}

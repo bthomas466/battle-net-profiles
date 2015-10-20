@@ -1,3 +1,15 @@
+//Animation delay for history cards
 @mixin animation-delay($delay, $i) {
     animation-delay: $delay + $i;
+}
+//responsive mixins
+@mixin desktop {
+    @media(max-width: #{$desktop}) {
+        @content;
+    }
+}
+@mixin tablet-mobile {
+    @media(max-width: #{$tablet-mobile}) {
+        @content;
+    }
 }

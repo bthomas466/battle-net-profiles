@@ -7,22 +7,65 @@
     }
 }
 .battle-net-form.fixed-top-show {
-    height: 90px;
     width: 100%;
-    padding: 20px;
+    padding: 20px 0 0;
     margin: 0 auto;
     .fixed-logo-container {
         float: left;
         width: 90px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    .search-icon {
+        cursor: pointer;
+        img {
+            float: right;
+            margin-right: 10px;
+        }
+        @include tablet-mobile {
+            display: block;
+        }
     }
     .fixed-form-container {
         float: right;
+        @include tablet-mobile {
+            width: 100%;
+            float: none;
+            background-color: $primary;
+            padding: 20px 10px;
+        }
+    }
+    .mobile-hide {
+        @include tablet-mobile {
+            height: 0;
+            padding: 0;
+            visibility: hidden;
+            overflow: hidden;
+        }
+    }
+    .mobile-show {
+        @include tablet-mobile {
+            height: 205px;
+            visibility: visible;
+            overflow: hidden;
+            border-bottom: 6px solid $blue-sc;
+        }
+    }
+    .mobile-hide,
+    .mobile-show {
+        transition: all .5s ease;
     }
     .form-field {
         display: block;
         width: 175px;
         margin-bottom: 0;
         margin-right: 20px;
+        @include tablet-mobile {
+            width: 100%;
+            max-width: 480px;
+            margin: 20px auto;
+            float: none;
+        }
         input[type="text"] {
             color: #666;
             padding: 2px 10px;
@@ -43,6 +86,9 @@
     > div .clearfix {
         float: left;
         margin-top: 12px;
+        @include tablet-mobile {
+            float: none;
+        }
     }
     .button {
         display: block;
@@ -51,6 +97,10 @@
         margin-top: 7px;
         margin-left: 10px;
         padding: 4px 10px;
+        @include tablet-mobile {
+            float: none;
+            margin: 0 auto;
+        }
         input[type="submit"] {
             font-size: 1.2em;
         }

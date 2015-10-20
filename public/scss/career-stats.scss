@@ -3,6 +3,13 @@
     margin: 0 auto;
     text-align: center;
     color: $white;
+    @include desktop {
+        width: 700px;
+    }
+    @include tablet-mobile {
+        width: 100%;
+        padding: 0 10px;
+    }
     .portrait {
         border-radius: 50%;
         height: 90px;

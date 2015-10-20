@@ -2,11 +2,21 @@
     width: 1010px;
     margin: 0 auto;
     padding: 60px 0;
+    @include desktop {
+        width: 710px;
+    }
+    @include tablet-mobile {
+        width: 100%;
+        padding: 0 10px;
+    }
     h3 {
         text-align: center;
         margin-bottom: 20px;
         opacity: 0;
         animation: fadeIn .4s ease .5s forwards;
+        @include tablet-mobile {
+            margin-top: 20px;
+        }
     }
     ul {
         float: left;
@@ -19,6 +29,17 @@
         color: $white;
         opacity: 0;
         background: url('/images/sc2-icon-light.png') no-repeat 73px 8px $dark-primary;
+        @include desktop {
+            width: 165px;
+            background-position: 64px 8px;
+        }
+        @include tablet-mobile {
+            float: none;
+            width: 100%;
+            max-width: 480px;
+            margin: 20px auto;
+            background-position: center 6px;
+        }
         li {
             text-align: center;
             &:nth-child(5n) {
@@ -42,6 +63,10 @@
 .match {
 	-webkit-perspective: 1300px;
 	perspective: 1300px;
+    @include tablet-mobile {
+        -webkit-perspective: 1850px;
+        perspective: 1850px;
+    }
     .matches {
     	-webkit-transform-style: preserve-3d;
     	transform-style: preserve-3d;

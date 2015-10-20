@@ -1,6 +1,13 @@
 .race-stats-container {
     width: $container-width;
     margin: 0 auto;
+    @include desktop {
+        width: 700px;
+    }
+    @include tablet-mobile {
+        width: 100%;
+        padding: 0 10px;
+    }
     h4 {
         text-align: center;
     }
@@ -14,8 +21,22 @@
         color: $white;
         animation: fadeDown 1s ease 1.2s forwards;
         opacity: 0;
+        @include desktop {
+            width: 226px;
+            margin-right: 10px;
+        }
+        @include tablet-mobile {
+            float: none;
+            width: 100%;
+            max-width: 480px;
+            margin: 20px auto;
+            margin-bottom: 15px;
+        }
         &:last-child {
             margin-right: 0;
+            @include tablet-mobile {
+                margin-right: auto;
+            }
         }
         .upper {}
         img {
@@ -25,6 +46,9 @@
         }
         .lower{
             padding: 0 20px;
+            @include tablet-mobile {
+                padding-bottom: 10px;
+            }
         }
         ul {
             li {

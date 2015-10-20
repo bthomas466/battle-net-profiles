@@ -50,15 +50,15 @@ battlenetApp.controller('GetUserInformationCtrl', ['$scope', '$timeout', 'idAndN
             var images = ['Rendezvous_SC2_Art1.jpg', 'ui_hots_loading_missionselect_zexpedition01.jpg', 'ui_hots_loading_planetviewkorhal.jpg', 'maxresdefault.jpg', 'free-wallpaper-14.jpg', 'best_game_starcraft_2_wallpapers_hd_10.jpg', 'starcraft-2-battle-1920-1080-6284.jpg'];
             var careerContainer = angular.element(document.querySelector('.career-wrapper'));
             careerContainer.css('background-image', 'url(images/' + images[Math.floor(Math.random() * images.length)] + ')');
-            var myEl = angular.element(document.querySelector('.battle-net-form'));
-            myEl.addClass("fixed-top-hide")
+            var bnetForm = angular.element(document.querySelector('.battle-net-form'));
+            bnetForm.addClass("fixed-top-hide")
 
             $timeout(function(){
                 //add css classes to animate header to fixed top
                 var bg = angular.element(document.querySelector('.bg-wrap'));
                 bg.addClass('dark');
-                myEl.removeClass('fixed-top-hide');
-                myEl.addClass('fixed-top-show');
+                bnetForm.removeClass('fixed-top-hide');
+                bnetForm.addClass('fixed-top-show');
             }, 0875);
         });
         idAndName.getMatches($scope.id, $scope.name).then(function(response) {
